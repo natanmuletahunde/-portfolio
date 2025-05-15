@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import BlogCard from '../components/BlogCard';
+import BodyHome from './BodyHome'; // Import your new component
 
 const Home = () => {
   const [blogs, setBlogs] = useState([]);
@@ -34,6 +35,7 @@ const Home = () => {
     <div className="max-w-3xl mx-auto p-6">
       <h1 className="text-3xl font-bold text-center mb-6 text-blue-600">Home Page</h1>
 
+      {/* Your existing blog form */}
       <form onSubmit={handleSubmit} className="space-y-4 mb-6">
         <input
           type="text"
@@ -69,11 +71,13 @@ const Home = () => {
         </button>
       </form>
 
-      <div className="space-y-4">
+      {/* Existing blog list */}
+      <div className="space-y-4 mb-10">
         {blogs.map(blog => (
           <BlogCard key={blog._id} blog={blog} />
         ))}
       </div>
+      <BodyHome />
     </div>
   );
 };
