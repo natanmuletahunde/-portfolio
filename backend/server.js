@@ -9,11 +9,10 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-mongoose.connect(process.env.MONGO_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-}).then(() => console.log('MongoDB Connected'))
-  .catch(err => console.log(err));
+// ✅ Simplified MongoDB connection — no options needed in Mongoose 6+
+mongoose.connect(process.env.MONGO_URI)
+  .then(() => console.log('MongoDB Connected'))
+  .catch(err => console.log('MongoDB connection error:', err));
 
 app.use('/api/blogs', blogRoutes);
 
