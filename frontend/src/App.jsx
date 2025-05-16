@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import About from './pages/About';
-import LoginPage from './pages/LoginPage';
+import Auth from './components/Auth'; // Import the new Auth wrapper component
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
@@ -10,12 +10,11 @@ function App() {
     <Router>
       <div className="flex flex-col min-h-screen">
         <Navbar />
-        {/* Main content grows to fill the space */}
         <main className="flex-grow">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
-            <Route path="/login" element={<LoginPage />} />
+            <Route path="/login" element={<Auth />} /> {/* Auth wrapper for Login & Signup */}
           </Routes>
         </main>
         <Footer />
