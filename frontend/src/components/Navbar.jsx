@@ -2,8 +2,8 @@ import { Link } from 'react-router-dom';
 
 function Navbar() {
   return (
-    <nav className="bg-blue-700 text-white p-4 shadow-md">
-      <ul className="flex gap-6 justify-center font-semibold text-lg">
+    <nav className="bg-gray-800 text-white p-4 shadow-md">
+      <ul className="flex gap-6 justify-end font-semibold text-lg max-w-7xl mx-auto">
         <li>
           <Link to="/" className="hover:text-yellow-300 transition">Home</Link>
         </li>
@@ -17,5 +17,4 @@ function Navbar() {
     </nav>
   );
 }
-
 export default Navbar;
