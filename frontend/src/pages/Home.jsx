@@ -1,12 +1,14 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import BlogCard from '../components/BlogCard';
-import BodyHome from '../components/BodyHome'; // Import your new component
+import BodyHome from '../components/BodyHome';
+import ApiGenerator from '../components/ApiGenerator'; // Make sure the path is correct
 
 const Home = () => {
   const [blogs, setBlogs] = useState([]);
   const [form, setForm] = useState({ title: '', content: '', author: '' });
 
+  // Fetch blogs from your backend API
   const fetchBlogs = async () => {
     try {
       const res = await axios.get('http://localhost:5000/api/blogs');
@@ -20,6 +22,7 @@ const Home = () => {
     fetchBlogs();
   }, []);
 
+  // Submit blog form
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -69,15 +72,19 @@ const Home = () => {
         </button>
       </form>
 
-      {/* Show BodyHome section above the blogs */}
+      {/* Render BodyHome */}
       <BodyHome />
 
-      {/* Blog cards */}
+      {/* Render API Generator Section */}
+    
+      {/* Render blog cards */}
       <div className="space-y-4 mt-10">
         {blogs.map(blog => (
           <BlogCard key={blog._id} blog={blog} />
         ))}
       </div>
+      <ApiGenerator />
+
     </div>
   );
 };
