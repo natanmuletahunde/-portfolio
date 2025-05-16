@@ -5,6 +5,7 @@ require('dotenv').config();
 const path = require('path');
 
 const blogRoutes = require('./routes/blogRoutes');
+const authRoutes = require('./routes/authRoutes');  // <-- new
 
 const app = express();
 
@@ -17,6 +18,7 @@ app.use('/uploads', express.static(path.join(__dirname, 'public/uploads')));
 
 // API Routes
 app.use('/api/blogs', blogRoutes);
+app.use('/api/auth', authRoutes);  // <-- register auth routes
 
 // Connect to MongoDB
 mongoose.connect(process.env.MONGO_URI, {
