@@ -3,63 +3,63 @@ import React from 'react';
 const imagesData = [
   {
     id: 1,
-    name: 'Sunset Vista',
+    name: 'image_1',
     description: 'A beautiful view of the sunset over the mountains.',
-    imageUrl: 'https://source.unsplash.com/200x150/?sunset,mountains',
+    imageUrl: 'images/image_1.jpg',
   },
   {
     id: 2,
-    name: 'City Lights',
+    name: 'image_2',
     description: 'Nighttime city skyline sparkling with lights.',
-    imageUrl: 'https://source.unsplash.com/200x150/?city,night',
+    imageUrl: 'images/image_2.jpg',
   },
   {
     id: 3,
-    name: 'Forest Path',
+    name: 'image_3',
     description: 'A serene path through a lush green forest.',
-    imageUrl: 'https://source.unsplash.com/200x150/?forest,path',
+    imageUrl: 'images/image_3.jpg',
   },
   {
     id: 4,
-    name: 'Ocean Breeze',
+    name: 'image_4',
     description: 'Calm waves rolling on a sunny beach.',
-    imageUrl: 'https://source.unsplash.com/200x150/?ocean,beach',
+    imageUrl: 'images/image_4.jpg',
   },
   {
     id: 5,
-    name: 'Desert Dunes',
+    name: 'image_5',
     description: 'Golden dunes stretching far into the horizon.',
-    imageUrl: 'https://source.unsplash.com/200x150/?desert,dunes',
+    imageUrl: 'images/image_5.jpg',
   },
   {
     id: 6,
-    name: 'Snowy Peaks',
+    name: 'image_6',
     description: 'Majestic snow-covered mountains under a blue sky.',
-    imageUrl: 'https://source.unsplash.com/200x150/?snow,mountains',
+    imageUrl: 'images/image_6.jpg',
   },
   {
     id: 7,
-    name: 'Blooming Flowers',
+    name: 'image_7',
     description: 'Bright colorful flowers in full bloom.',
-    imageUrl: 'https://source.unsplash.com/200x150/?flowers,bloom',
+    imageUrl: 'images/image_7.jpg',
   },
   {
     id: 8,
-    name: 'Starry Night',
+    name: 'image_8',
     description: 'Clear night sky filled with stars.',
-    imageUrl: 'https://source.unsplash.com/200x150/?stars,night',
+    imageUrl: 'images/image_8.jpg',
   },
   {
     id: 9,
-    name: 'River Flow',
+    name: 'image_9',
     description: 'Peaceful river flowing through the valley.',
-    imageUrl: 'https://source.unsplash.com/200x150/?river,valley',
+    imageUrl: 'images/image_9.jpg',
   },
   {
     id: 10,
-    name: 'Autumn Leaves',
+    name: 'image_10',
     description: 'Colorful fall leaves carpeting the ground.',
-    imageUrl: 'https://source.unsplash.com/200x150/?autumn,leaves',
+    imageUrl: 'images/image_10.jpg',
   },
 ];
 
@@ -75,8 +75,16 @@ const BodyHome = () => {
       {/* Images grid */}
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 mb-12">
         {imagesData.map(({ id, name, description, imageUrl }) => (
-          <div key={id} className="bg-white rounded shadow hover:shadow-lg transition-shadow duration-300 overflow-hidden">
-            <img src={imageUrl} alt={name} className="w-full h-32 object-cover" />
+          <div
+            key={id}
+            className="bg-white rounded shadow hover:shadow-lg transition-shadow duration-300 overflow-hidden"
+          >
+            <img
+              src={imageUrl}
+              alt={name}
+              className="w-full h-32 object-cover"
+              loading="lazy"
+            />
             <div className="p-2">
               <h3 className="text-sm font-semibold">{name}</h3>
               <p className="text-xs text-gray-600">{description}</p>
