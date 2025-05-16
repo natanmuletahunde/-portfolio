@@ -43,8 +43,6 @@ exports.deleteBlog = async (req, res) => {
     res.status(500).json({ message: err.message });
   }
 };
-
-// Update
 exports.updateBlog = async (req, res) => {
   try {
     const { title, content, author } = req.body;
