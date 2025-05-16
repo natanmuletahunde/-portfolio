@@ -97,15 +97,21 @@ const Home = () => {
       {/* BodyHome section */}
       <BodyHome />
 
-      {/* ApiGenerator section */}
-     
-
-      {/* Blog cards */}
+      {/* Blog cards section */}
       <div className="space-y-4 mt-10">
         {blogs.map((blog) => (
-          <BlogCard key={blog._id} blog={blog} />
+          <BlogCard
+            key={blog._id}
+            blog={blog}
+            onDelete={(id) => setBlogs(blogs.filter((b) => b._id !== id))}
+            onUpdate={(updatedBlog) =>
+              setBlogs(blogs.map((b) => (b._id === updatedBlog._id ? updatedBlog : b)))
+            }
+          />
         ))}
       </div>
+
+      {/* API Generator section */}
       <ApiGenerator />
     </div>
   );
